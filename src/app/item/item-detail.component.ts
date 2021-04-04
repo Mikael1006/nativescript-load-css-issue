@@ -1,20 +1,9 @@
-import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
-
-import { Item } from './item'
-import { ItemService } from './item.service'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'ns-details',
   templateUrl: './item-detail.component.html',
+  // Loading the css seems to be the issue, comment next line and the app will not freeze
+  styleUrls: ['./item-detail.component.css']
 })
-export class ItemDetailComponent implements OnInit {
-  item: Item
-
-  constructor(private itemService: ItemService, private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    const id = +this.route.snapshot.params.id
-    this.item = this.itemService.getItem(id)
-  }
-}
+export class ItemDetailComponent {}
